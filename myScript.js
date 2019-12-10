@@ -8,10 +8,10 @@ var hourArray = [{hours : 9 },
                 {hours : 16},
                 {hours : 17}];
 
-var todoList = [{activity: "test"},
+var todoList = [{activity: ""},
                 {activity: ""},
                 {activity: ""},
-                {activity: "test"},
+                {activity: ""},
                 {activity: ""},
                 {activity: ""},
                 {activity: ""},
@@ -46,15 +46,15 @@ function showTimes() {
     var prependDiv = $("<div>");
     prependDiv.addClass("col-2");
     var timeSpan = $("<span>");
-    timeSpan.addClass("input-group-text bg-white border-left-0 border-danger rounded-0");
+    timeSpan.addClass("input-group-text border-white rounded-0 bg-transparent text-white timeSpan");
     timeSpan.text(moment(hourArray[i]).format("h a")) ;
     var inputText = $("<input>");
     inputText.addClass("form-control form-control-lg activity");
     inputText.attr("type", "text");
     var appendDiv = $("<div>");
-    appendDiv.addClass("col-2 text-center");
+    appendDiv.addClass("col-2");
     var saveSpan = $("<span>");
-    saveSpan.addClass("input-group-text btn");
+    saveSpan.addClass("input-group-text btn bg-transparent text-white saveSpan");
     saveSpan.attr("data-id", i);
     saveSpan.text("Save") ;
 
@@ -112,25 +112,20 @@ console.log(moment().toObject());
     $(".activity").each(function(hour){
 
         if(moment().isBetween(hourArray[hour], hourArray[hour + 1]) || moment().isSame(hourArray[hour])) {
-            console.log("true");
-            console.log(this);
-            $(this).attr("style",  "background-color: pink")
+            $(this).css({"background-color": "#efbe66", "color" : "black"})
             
     } else if(moment().isBefore(hourArray[hour])) {
-        console.log("false");
-        $(this).attr("style",  "background-color: green")
+        $(this).css({"background-color": "#e59400", "color" : "white"})
         
     } else {
-        $(this).attr("style",  "background-color: lightblue") 
+        $(this).css({"background-color": "#D2B48C", "opacity" : "0.5", "color": "black"}) 
     }
         
     
 
 
     })
-    
-    console.log(hourArray[3], hourArray[3 + 1]);
-    console.log(moment().hour())
+
 
 
 //click events
@@ -144,6 +139,8 @@ $(".btn").on("click", function(){
 
     saveLocal();
     getLocal();
+
+    $(".save-container").fadeIn("slow").fadeOut(2000)
 })
 
 

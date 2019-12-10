@@ -1,0 +1,42 @@
+.activity{
+
+    background-color: lightgray;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: normal;
+    opacity: 1;
+}
+
+
+body {
+    background-image: url(../assets/clock.jpg);
+    max-height: max-content;
+    overflow: scroll;
+}
+
+.saveSpan{
+    position: absolute;
+    text-align: center;
+    margin: auto 10px auto 10px;
+    top: 5px;
+}
+
+.timeSpan{
+    position: relative;
+    padding-left: 60px;
+    top: 5px;
+}
+
+.save-container {
+    position: absolute;
+    display: none;
+    background-color: #54616d;
+    color: #ffa500;
+    width: 20%;
+    height: 10%;
+    border: #4d4d4d solid 5px;
+    text-align: center;
+    padding: 10px 0;
+    left: 40%;
+    
+}
