@@ -16,7 +16,7 @@ var todoList = [{activity: "test"},
                 {activity: ""},
                 {activity: ""},
                 {activity: ""},
-                {activity: ""}]
+                {activity: ""}];
 
 $(document).ready(function() {
 
@@ -51,11 +51,11 @@ function showTimes() {
     var inputText = $("<input>");
     inputText.addClass("form-control form-control-lg activity");
     inputText.attr("type", "text");
-    inputText.attr("data-id", i);
     var appendDiv = $("<div>");
     appendDiv.addClass("col-2 text-center");
     var saveSpan = $("<span>");
     saveSpan.addClass("input-group-text btn");
+    saveSpan.attr("data-id", i);
     saveSpan.text("Save") ;
 
     //append each element sequentially to form an input group
@@ -135,20 +135,16 @@ console.log(moment().toObject());
 
 //click events
 
+$(".btn").on("click", function(){
 
+    var btnID = $(this).attr("data-id");
+    var response = $(this).parent().prev().val();
+    todoList[btnID].activity = response
+    console.log(todoList);
 
-
-
-
-
-
-// saveLocal();
-// getLocal();
-
-
-
-
-
+    saveLocal();
+    getLocal();
+})
 
 
 
